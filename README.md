@@ -1,14 +1,14 @@
-# Slush Slush-substruct [![Build Status](https://secure.travis-ci.org/internalfx/slush-slush-substruct.png?branch=master)](https://travis-ci.org/internalfx/slush-slush-substruct) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-slush-substruct.png)](http://badges.enytc.com/for/npm/slush-slush-substruct)
+# Slush Slush-substruct [![Build Status](https://secure.travis-ci.org/internalfx/slush-substruct.png?branch=master)](https://travis-ci.org/internalfx/slush-substruct) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-substruct.png)](http://badges.enytc.com/for/npm/slush-substruct)
 
 > Create new substruct project
 
 
 ## Getting Started
 
-Install `slush-slush-substruct` globally:
+Install `slush-substruct` globally:
 
 ```bash
-$ npm install -g slush-slush-substruct
+$ npm install -g slush-substruct
 ```
 
 ### Usage
@@ -16,13 +16,13 @@ $ npm install -g slush-slush-substruct
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-slush-slush-substruct
+$ mkdir my-substruct-project
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-slush-substruct && slush slush-substruct
+$ cd my-substruct-project && slush slush-substruct
 ```
 
 ## Getting To Know Slush
@@ -35,12 +35,12 @@ To find out more about Slush, check out the [documentation](https://github.com/s
 
 ## Contributing
 
-See the [CONTRIBUTING Guidelines](https://github.com/internalfx/slush-slush-substruct/blob/master/CONTRIBUTING.md)
+See the [CONTRIBUTING Guidelines](https://github.com/internalfx/slush-substruct/blob/master/CONTRIBUTING.md)
 
 ## Support
-If you have any problem or suggestion please open an issue [here](https://github.com/internalfx/slush-slush-substruct/issues).
+If you have any problem or suggestion please open an issue [here](https://github.com/internalfx/slush-substruct/issues).
 
-## License 
+## License
 
 The MIT License
 
@@ -66,4 +66,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-

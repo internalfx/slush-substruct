@@ -1,6 +1,6 @@
 /*
- * slush-slush-substruct
- * https://github.com/internalfx/slush-slush-substruct
+ * slush-substruct
+ * https://github.com/internalfx/slush-substruct
  *
  * Copyright (c) 2017, Bryan Morris
  * Licensed under the MIT license.
@@ -16,10 +16,23 @@ const rename = require('gulp-rename')
 const _ = require('underscore.string')
 const inquirer = require('inquirer')
 const path = require('path')
+const crypto = require('crypto')
 
 function format (string) {
   var username = string.toLowerCase()
   return username.replace(/\s/g, '')
+}
+
+const uniqueId = function (length) {
+  let chars = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let bytes = crypto.randomBytes(length)
+  let value = []
+
+  for (let i = 0; i < length; i += 1) {
+    value.push(chars[bytes[i] % chars.length])
+  }
+
+  return value.join('')
 }
 
 var defaults = (function () {
@@ -57,40 +70,16 @@ gulp.task('default', function (done) {
     name: 'appName',
     message: 'What is the name of your project?',
     default: defaults.appName
-  }, {
-    name: 'appDescription',
-    message: 'What is the description?'
-  }, {
-    name: 'appVersion',
-    message: 'What is the version of your project?',
-    default: '0.1.0'
-  }, {
-    name: 'authorName',
-    message: 'What is the author name?',
-    default: defaults.authorName
-  }, {
-    name: 'authorEmail',
-    message: 'What is the author email?',
-    default: defaults.authorEmail
-  }, {
-    name: 'userName',
-    message: 'What is the github username?',
-    default: defaults.userName
-  }, {
-    type: 'confirm',
-    name: 'moveon',
-    message: 'Continue?'
   }]
   // Ask
   inquirer
     .prompt(prompts)
     .then(function (answers) {
-      if (!answers.moveon) {
-        return done()
-      }
       answers.appNameSlug = _.slugify(answers.appName)
+      answers.secretKey = uniqueId(40)
+
       gulp.src(path.join(__dirname, 'templates', '**'))
-        .pipe(template(answers))
+        .pipe(template(answers, {interpolate: /<%=([\s\S]+?)%>/g}))
         .pipe(rename(function (file) {
           if (file.basename[0] === '_') {
             file.basename = '.' + file.basename.slice(1)
