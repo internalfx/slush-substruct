@@ -16,13 +16,13 @@ $ npm install -g slush-substruct
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-substruct-project
+$ mkdir my-project
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-substruct-project && slush slush-substruct
+$ cd my-project && slush substruct
 ```
 
 ## Getting To Know Slush
