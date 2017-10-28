@@ -78,7 +78,7 @@ gulp.task('default', function (done) {
       answers.appNameSlug = _.slugify(answers.appName)
       answers.secretKey = uniqueId(40)
 
-      gulp.src(path.join(__dirname, 'templates', '**'))
+      gulp.src(path.join(__dirname, 'templates', '**'), {dot: true})
         .pipe(template(answers, {interpolate: /<%=([\s\S]+?)%>/g}))
         .pipe(rename(function (file) {
           if (file.basename[0] === '_') {
