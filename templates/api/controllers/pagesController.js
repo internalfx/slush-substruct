@@ -1,6 +1,6 @@
 module.exports = {
   // HOME PAGE
   index: async function (ctx) {
-    ctx.render('index.ejs')
+    await ctx.render('index.ejs')
   }
 }
