@@ -14,6 +14,7 @@ module.exports = {
   port: 8000,
   rootUrl: null, // optional, e.g. rootUrl: http://your-host-name.com-as-accessed-from-internet:3000
   secret: '<%= secretKey %>',
+  services: [],
   session: {
     sessionCookieName: 'x-substruct-token',
     sessionCookieMaxAge: 1000 * 60 * 60 * 24 * 365,
