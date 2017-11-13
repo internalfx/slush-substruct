@@ -6,5 +6,5 @@ module.exports = async function (ctx) {
     return
   }
 
-  return true // Allow controller method to execute.
+  return true // Return true to allow controller method to execute.
 }
