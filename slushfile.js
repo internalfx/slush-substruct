@@ -65,6 +65,13 @@ var defaults = (function () {
   }
 })()
 
+let paths = [
+  path.join(__dirname, 'templates', '**/*'),
+  path.join(__dirname, 'templates', '**/.*'),
+  path.join(__dirname, 'templates', '.**/*'),
+  path.join(__dirname, 'templates', '.**/.*')
+]
+
 gulp.task('default', function (done) {
   var prompts = [{
     name: 'appName',
@@ -78,7 +85,7 @@ gulp.task('default', function (done) {
       answers.appNameSlug = _.slugify(answers.appName)
       answers.secretKey = uniqueId(40)
 
-      gulp.src(path.join(__dirname, 'templates', '**'), {dot: true})
+      gulp.src(paths)
         .pipe(template(answers, {interpolate: /<%=([\s\S]+?)%>/g}))
         .pipe(rename(function (file) {
           if (file.basename[0] === '_') {
