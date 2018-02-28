@@ -9,7 +9,7 @@
 'use strict'
 
 const gulp = require('gulp')
-const install = require('gulp-install')
+const yarn = require('gulp-yarn')
 const conflict = require('gulp-conflict')
 const template = require('gulp-template')
 const rename = require('gulp-rename')
@@ -87,7 +87,7 @@ gulp.task('default', function (done) {
         }))
         .pipe(conflict('./'))
         .pipe(gulp.dest('./'))
-        .pipe(install())
+        .pipe(yarn())
         .on('end', function () {
           done()
         })
