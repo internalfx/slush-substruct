@@ -16,23 +16,10 @@ const rename = require('gulp-rename')
 const _ = require('underscore.string')
 const inquirer = require('inquirer')
 const path = require('path')
-const crypto = require('crypto')
 
 function format (string) {
   var username = string.toLowerCase()
   return username.replace(/\s/g, '')
-}
-
-const uniqueId = function (length) {
-  let chars = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  let bytes = crypto.randomBytes(length)
-  let value = []
-
-  for (let i = 0; i < length; i += 1) {
-    value.push(chars[bytes[i] % chars.length])
-  }
-
-  return value.join('')
 }
 
 var defaults = (function () {
@@ -83,7 +70,6 @@ gulp.task('default', function (done) {
     .prompt(prompts)
     .then(function (answers) {
       answers.appNameSlug = _.slugify(answers.appName)
-      answers.secretKey = uniqueId(40)
 
       gulp.src(paths)
         .pipe(template(answers, {interpolate: /<%=([\s\S]+?)%>/g}))
