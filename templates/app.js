@@ -1,9 +1,8 @@
 let substruct = require('substruct')
 
-substruct.init().then(async function ({koa, config}) {
-  let server = require('http').createServer(koa.callback())
+substruct.configure()
 
-  server.listen(config.port)
+substruct.start().then(async function ({koa, config}) {
   console.log('Server Started...')
 }).catch(function (err) {
   console.error(err.stack)
