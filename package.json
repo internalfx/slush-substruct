@@ -1,7 +1,7 @@
 {
   "name": "slush-substruct",
   "description": "Create new substruct project",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/internalfx/slush-substruct",
   "author": {
     "name": "Bryan Morris",
@@ -25,15 +25,16 @@
   },
   "dependencies": {
     "gulp": "^3.6.2",
-    "gulp-conflict": "^0.1.1",
-    "gulp-install": "^0.1.4",
-    "gulp-rename": "^1.2.0",
-    "gulp-template": "^0.1.1",
-    "gulp-yarn": "^1.0.1",
+    "gulp-conflict": "^0.4.0",
+    "gulp-install": "^1.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-template": "^5.0.0",
+    "gulp-yarn": "^2.0.0",
     "iniparser": "^1.0.5",
-    "inquirer": "^3.3.0",
+    "inquirer": "^6.2.0",
+    "natives": "1.1.3",
     "slush": ">=1.0.0",
-    "underscore.string": "^2.3.3"
+    "underscore.string": "^3.3.4"
   },
   "keywords": [
     "slushgenerator"
